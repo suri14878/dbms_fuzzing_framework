@@ -27,43 +27,43 @@ class PGFuzzer:
         """Sort results to handle ordering differences"""
         return sorted(results) if results else None
 
-    # def run_test(self, original_query):
-    #     self._insert_test_data()
-    #     mutated_query = self.mutator.mutate(original_query)
-        
-    #     original_result = self._normalize_results(self.pg.execute_query(original_query))
-    #     mutated_result = self._normalize_results(self.pg.execute_query(mutated_query))
-        
-    #     if original_result != mutated_result:
-    #         self.results.append({
-    #             "original": (original_query, original_result),
-    #             "mutated": (mutated_query, mutated_result)
-    #         })
-    #         print("⚠️ Result mismatch found!")
-
-
     def run_test(self, original_query):
         self._insert_test_data()
         mutated_query = self.mutator.mutate(original_query)
-    
-        print(f"\n=== Test Run ===")
-        print(f"Original: {original_query}")
-        print(f"Mutated: {mutated_query}")
-    
+        
         original_result = self._normalize_results(self.pg.execute_query(original_query))
         mutated_result = self._normalize_results(self.pg.execute_query(mutated_query))
-
-        print(f"Original Result: {original_result}")
-        print(f"Mutated Result: {mutated_result}")
-
+        
         if original_result != mutated_result:
             self.results.append({
                 "original": (original_query, original_result),
                 "mutated": (mutated_query, mutated_result)
             })
             print("⚠️ Result mismatch found!")
-        else:
-            print("✅ Results match")
+
+
+    # def run_test(self, original_query):
+    #     self._insert_test_data()
+    #     mutated_query = self.mutator.mutate(original_query)
+    
+    #     print(f"\n=== Test Run ===")
+    #     print(f"Original: {original_query}")
+    #     print(f"Mutated: {mutated_query}")
+    
+    #     original_result = self._normalize_results(self.pg.execute_query(original_query))
+    #     mutated_result = self._normalize_results(self.pg.execute_query(mutated_query))
+
+    #     print(f"Original Result: {original_result}")
+    #     print(f"Mutated Result: {mutated_result}")
+
+    #     if original_result != mutated_result:
+    #         self.results.append({
+    #             "original": (original_query, original_result),
+    #             "mutated": (mutated_query, mutated_result)
+    #         })
+    #         print("⚠️ Result mismatch found!")
+    #     else:
+    #         print("✅ Results match")
 
 # Test this phase
 print("\nTesting query comparison...")

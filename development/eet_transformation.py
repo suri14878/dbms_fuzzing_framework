@@ -30,22 +30,22 @@ class PGQueryMutator:
             print(f"Mutation error: {e}")
             return original_query
 
-    # #forcing known mutation
-    # def mutate(self, original_query):
-    #     try:
-    #         parsed = parse_one(original_query, dialect="postgres")
+    #forcing known mutation
+    def mutate(self, original_query):
+        try:
+            parsed = parse_one(original_query, dialect="postgres")
             
-    #         # FOR TESTING: Always change >= to >
-    #         transformed = parsed.transform(lambda node: (
-    #             exp.GT(this=node.this, expression=node.expression)
-    #             if isinstance(node, exp.GTE)
-    #             else node
-    #         ))
+            # FOR TESTING: Always change >= to >
+            transformed = parsed.transform(lambda node: (
+                exp.GT(this=node.this, expression=node.expression)
+                if isinstance(node, exp.GTE)
+                else node
+            ))
             
-    #         return transformed.sql(dialect="postgres")
-    #     except Exception as e:
-    #         print(f"Mutation error: {e}")
-    #         return original_query
+            return transformed.sql(dialect="postgres")
+        except Exception as e:
+            print(f"Mutation error: {e}")
+            return original_query
 
     def _swap_and_clauses(self, node):
         if isinstance(node, exp.And):
