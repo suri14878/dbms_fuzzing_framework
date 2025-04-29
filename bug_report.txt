@@ -1,0 +1,1021 @@
+
+==== BUG REPORT ====[2025-04-28 18:26:57]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  4 = 0 OR NOT 4 = 0 OR 4 = 0 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:28:32]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  8 = 9 OR NOT 8 = 9 OR 8 = 9 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:28:33]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 7 OR NOT 2 = 7 OR 2 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:28:36]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  1 = 10 OR NOT 1 = 10 OR 1 = 10 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:28:37]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  6 = 9 OR NOT 6 = 9 OR 6 = 9 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:28:39]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  9 = 3 OR NOT 9 = 3 OR 9 = 3 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:28:40]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  8 = 8 OR NOT 8 = 8 OR 8 = 8 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:30:15]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  7 = 8 OR NOT 7 = 8 OR 7 = 8 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:30:19]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  6 = 7 OR NOT 6 = 7 OR 6 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:30:20]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  7 = 10 OR NOT 7 = 10 OR 7 = 10 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:34:35]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  9 = 9 OR NOT 9 = 9 OR 9 = 9 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:34:37]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  3 = 10 OR NOT 3 = 10 OR 3 = 10 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:45:09]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 8 OR NOT 2 = 8 OR 2 = 8 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:45:13]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 7 OR NOT 2 = 7 OR 2 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:49:32]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  10 = 1 OR NOT 10 = 1 OR 10 = 1 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:49:36]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  4 = 5 OR NOT 4 = 5 OR 4 = 5 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:49:59]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  0 = 6 OR NOT 0 = 6 OR 0 = 6 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:54:55]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 2 OR NOT 2 = 2 OR 2 = 2 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 18:59:02]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 2 OR NOT 2 = 2 OR 2 = 2 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:06:05]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 3 OR NOT 2 = 3 OR 2 = 3 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:06:27]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  10 = 9 OR NOT 10 = 9 OR 10 = 9 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:06:28]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  2 = 2 OR NOT 2 = 2 OR 2 = 2 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:06:32]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  6 = 1 OR NOT 6 = 1 OR 6 = 1 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:06:33]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  10 = 6 OR NOT 10 = 6 OR 10 = 6 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:16:33]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  1 = 4 OR NOT 1 = 4 OR 1 = 4 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:16:36]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  8 = 10 OR NOT 8 = 10 OR 8 = 10 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:16:37]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  4 = 3 OR NOT 4 = 3 OR 4 = 3 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:16:40]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  7 = 7 OR NOT 7 = 7 OR 7 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:21:31]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    0 = 1 OR NOT 0 = 1 OR 0 = 1 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:21:36]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    7 = 6 OR NOT 7 = 6 OR 7 = 6 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:27:37]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  3 = 5 OR NOT 3 = 5 OR 3 = 5 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:27:39]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  4 = 6 OR NOT 4 = 6 OR 4 = 6 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:27:45]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  8 = 10 OR NOT 8 = 10 OR 8 = 10 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:28:33]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  4 = 6 OR NOT 4 = 6 OR 4 = 6 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:35:07]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  1 = 4 OR NOT 1 = 4 OR 1 = 4 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:59:50]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    7 = 7 OR NOT 7 = 7 OR 7 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:59:51]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    4 = 9 OR NOT 4 = 9 OR 4 = 9 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:59:52]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    9 = 2 OR NOT 9 = 2 OR 9 = 2 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:59:55]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    6 = 7 OR NOT 6 = 7 OR 6 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:59:56]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    3 = 7 OR NOT 3 = 7 OR 3 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 19:59:59]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  (
+    7 = 6 OR NOT 7 = 6 OR 7 = 6 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+  )
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 20:01:58]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  8 = 10 OR NOT 8 = 10 OR 8 = 10 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 20:02:01]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  7 = 7 OR NOT 7 = 7 OR 7 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 20:02:02]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  9 = 7 OR NOT 9 = 7 OR 9 = 7 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 20:02:03]
+Original Query:
+SELECT name, age FROM users WHERE age BETWEEN 25 AND 30 AND salary > 50000
+Mutated Query:
+SELECT
+  name,
+  age
+FROM users
+WHERE
+  10 = 3 OR NOT 10 = 3 OR 10 = 3 IS NULL AND age BETWEEN 25 AND 30 AND salary > 50000
+Original Result:
+[]
+Mutated Result:
+[('Rakshya', 30), ('Rakshya2', 30), ('Rakshya3', 30), ('Rakshya4', 30), ('Rakshya5', 30)]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 18.75, 'Plan Rows': 1, 'Plan Width': 122, 'Filter': '((age >= 25) AND (age <= 30) AND (salary > 50000))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 15.0, 'Plan Rows': 500, 'Plan Width': 122}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 20:13:59]
+Original Query:
+SELECT name FROM users WHERE (age BETWEEN 25 AND 30) OR (salary BETWEEN 40000 AND 80000)
+Mutated Query:
+SELECT
+  name
+FROM users
+WHERE
+  (
+    (
+      4 = 2 AND NOT 4 = 2 AND 4 = 2 IS NULL
+    )
+    AND (
+      age BETWEEN 25 AND 30
+    )
+    OR (
+      salary BETWEEN 40000 AND 80000
+    )
+  )
+Original Result:
+[('Rakshya',), ('Rakshya2',), ('Rakshya3',), ('Rakshya4',), ('Rakshya5',)]
+Mutated Result:
+[]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 20.0, 'Plan Rows': 5, 'Plan Width': 118, 'Filter': '(((age >= 25) AND (age <= 30)) OR ((salary >= 40000) AND (salary <= 80000)))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 17.5, 'Plan Rows': 2, 'Plan Width': 118, 'Filter': '((salary >= 40000) AND (salary <= 80000))'}}],)
+=====================
+
+
+==== BUG REPORT ====[2025-04-28 20:14:08]
+Original Query:
+SELECT name FROM users WHERE (age BETWEEN 25 AND 30) OR (salary BETWEEN 40000 AND 80000)
+Mutated Query:
+SELECT
+  name
+FROM users
+WHERE
+  (
+    (
+      10 = 6 AND NOT 10 = 6 AND 10 = 6 IS NULL
+    )
+    AND (
+      age BETWEEN 25 AND 30
+    )
+    OR (
+      salary BETWEEN 40000 AND 80000
+    )
+  )
+Original Result:
+[('Rakshya',), ('Rakshya2',), ('Rakshya3',), ('Rakshya4',), ('Rakshya5',)]
+Mutated Result:
+[]
+Original Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 20.0, 'Plan Rows': 5, 'Plan Width': 118, 'Filter': '(((age >= 25) AND (age <= 30)) OR ((salary >= 40000) AND (salary <= 80000)))'}}],)
+Mutated Plan:
+([{'Plan': {'Node Type': 'Seq Scan', 'Parallel Aware': False, 'Async Capable': False, 'Relation Name': 'users', 'Alias': 'users', 'Startup Cost': 0.0, 'Total Cost': 17.5, 'Plan Rows': 2, 'Plan Width': 118, 'Filter': '((salary >= 40000) AND (salary <= 80000))'}}],)
+=====================
+
