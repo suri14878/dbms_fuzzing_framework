@@ -183,7 +183,5 @@ if __name__ == "__main__":
                       salary
                     FROM users
                     WHERE
-                      age BETWEEN 20 AND 30
-                      AND salary BETWEEN 40000 AND 60000
-                      AND id BETWEEN 1 AND 100;"""
+                      age BETWEEN 20 AND 30;"""
     fuzzer.fuzz(target_query, iterations=10)
