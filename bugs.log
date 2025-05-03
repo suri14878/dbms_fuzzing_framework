@@ -1,0 +1,22 @@
+Wed Apr 30 21:31:41 2025
+ORIGINAL:
+
+    SELECT name, age, salary 
+    FROM users 
+    WHERE age BETWEEN 25 AND 60 
+      AND salary > 50000
+    
+MUTATED:
+SELECT
+  name,
+  age,
+  salary
+FROM users
+WHERE
+  age BETWEEN 25 AND 60
+  AND salary = 22
+  OR NOT salary = 22
+  OR salary = 22 IS NULL
+  AND salary > 50000
+RESULTS: [] vs [('Rakshya', 30, 5000), ('Rakshya2', 30, 6000), ('Rakshya3', 30, 7000), ('Rakshya4', 30, 8000), ('Rakshya5', 30, 9000)]
+

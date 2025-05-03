@@ -28,59 +28,15 @@ class PGQueryMutator:
             return original_query
 
     def _apply_eet_rule(self, node):
-        if random.random() > 0.7:
-            return node  # Skip mutation most of the time to reach deeper nodes
-
         if isinstance(node, (exp.EQ, exp.GT, exp.LT, exp.And, exp.Or)):
-            rule = random.choice([1, 2])
+            rule = 1
             print(f"[DEBUG] Applying EET rule {rule}")
-            if rule == 1:
-                return exp.Paren(
-                    this=exp.Or(
-                        this=exp.Paren(this=self._false_expr(self._rand_bool_expr())),
-                        expression=node
-                    )
+            return exp.Paren(
+                this=exp.Or(
+                    this=exp.Paren(this=self._false_expr(self._rand_bool_expr())),
+                    expression=node
                 )
-            elif rule == 2:
-                return exp.Paren(
-                    this=exp.And(
-                        this=exp.Paren(this=self._true_expr(self._rand_bool_expr())),
-                        expression=node
-                    )
-                )
-
-        elif isinstance(node, exp.Between):
-            rule = random.choice([3, 4])
-            print(f"[DEBUG] Applying EET rule {rule}")
-
-            low = node.args['low']
-            high = node.args['high']
-
-            if rule == 3:
-                return exp.Between(
-                    this=node.this,
-                    low=exp.Case(
-                        ifs=[exp.When(this=self._false_expr(self._rand_bool_expr()), expression=self._rand_simple_expr(low))],
-                        default=low
-                    ),
-                    high=exp.Case(
-                        ifs=[exp.When(this=self._false_expr(self._rand_bool_expr()), expression=self._rand_simple_expr(high))],
-                        default=high
-                    )
-                )
-            elif rule == 4:
-                return exp.Between(
-                    this=node.this,
-                    low=exp.Case(
-                        ifs=[exp.When(this=self._true_expr(self._rand_bool_expr()), expression=low)],
-                        default=self._rand_simple_expr(low)
-                    ),
-                    high=exp.Case(
-                        ifs=[exp.When(this=self._true_expr(self._rand_bool_expr()), expression=high)],
-                        default=self._rand_simple_expr(high)
-                    )
-                )
-
+            )
         return node
 
     def _true_expr(self, p):
@@ -94,12 +50,15 @@ class PGQueryMutator:
         return exp.EQ(this=exp.Literal.number(random.randint(0, 10)), expression=exp.Literal.number(random.randint(0, 10)))
 
     def _rand_simple_expr(self, node):
-        if isinstance(node, exp.Column) or isinstance(node, exp.Literal):
-            node_str = str(node).lower()
-            if any(keyword in node_str for keyword in ['age', 'salary', 'id', 'count', 'price']):
-                return exp.Literal.number(random.randint(1, 100))
-            else:
-                return exp.Literal.string('random_value')
+        try:
+            if isinstance(node, exp.Column) or isinstance(node, exp.Literal):
+                node_str = str(node).lower()
+                if any(keyword in node_str for keyword in ['age', 'salary', 'id', 'count', 'price']):
+                    return exp.Literal.number(random.randint(1, 100))
+                else:
+                    return exp.Literal.string("'random_value'")
+        except Exception as e:
+            print(f"[DEBUG] _rand_simple_expr fallback due to: {e}")
         return exp.Literal.number(random.randint(1, 100))
 
 class DBFuzzer:
@@ -164,9 +123,6 @@ class DBFuzzer:
         with open("system_performance_log.txt", "a") as f:
             f.write(f"CPU: {cpu_usage}%, Memory: {memory_info.percent}% at {time.strftime('%Y-%m-%d %H:%M:%S')}\n")
 
-
-
-
 if __name__ == "__main__":
     db_config = {
         'dbname': 'postgresDB',
@@ -176,12 +132,17 @@ if __name__ == "__main__":
         'port': 5432
     }
 
-    fuzzer = DBFuzzer(db_config)
-    target_query = """SELECT
-                    name,
-                      age,
-                      salary
-                    FROM users
-                    WHERE
-                      age BETWEEN 20 AND 30;"""
-    fuzzer.fuzz(target_query, iterations=10)
+    test_query = """
+    SELECT name, age, salary 
+    FROM users 
+    WHERE age BETWEEN 25 AND 60 
+      AND salary > 50000
+    """
+
+    try:
+        print("Starting fuzzer...")
+        fuzzer = DBFuzzer(db_config)
+        fuzzer.fuzz(test_query, iterations=2)
+        print("\nFuzzing completed")
+    except Exception as e:
+        print(f"Fatal error: {e}")
